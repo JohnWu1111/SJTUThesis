@@ -55,18 +55,34 @@
 		
 		\subsection{量子度规与量子态体积}
 		
+			考虑两个相差很小的动量模式所对应的波函数$|u^0_k\rangle$和$|u^0_{k+dk}\rangle$，由于近动频率的细微差别，它们在经过一段时间的演化之后会体现出差距。
+			这两个态之间的距离可以用Fubini-Study度规$\mathbb{B}(k)$来刻画：
+			\begin{equation}
+				\mathbb{B}_{ij}(\mathbf{k})=\langle\partial_i \psi_\mathbf{k} |\partial_j \psi_\mathbf{k}\rangle-\langle\partial_i \psi_\mathbf{k} |\psi_\mathbf{k}\rangle \langle \psi_\mathbf{k}|\partial_j \psi_\mathbf{k}\rangle, \label{eq:metric}
+			\end{equation}
+			其中$\partial_i=\frac{\partial}{\partial k_i}$， $i=x,y$，而$|\psi_\mathbf{k}\rangle$是动量$\mathbf{k}$所对应的波函数。
+			对于二维系统来说，Fubini-Study度规是一个$2\times2$的张量。
+			$\mathbb{B}_{ij}(k)$的虚部部分是已经被广泛研究过的贝利相位，刻画的是随着$\mathbf{k}$的微小变化波函数的相位差别。
+			而$\mathbb{B}_{ij}(k)$的实部部分是量子度规，度量的是两个动量差别很小的波函数之间的平行性，刻画的是幅值方向上的差距。
+			为了衡量整个系统各个相邻动量波函数之间的差距，量子态体积（Quantum State Volume， QSV）~\cite{Ozawa20210}被引入来刻画布里渊区（BZ）中波函数所在流形的粗糙程度。
+			量子态体积$g$被定义为
+			\begin{equation} \label{eq:g_2D}
+				g_{2D}=\int d\mathbf{k} \sqrt{\det\Re[\mathbb{B}_{ij}(\mathbf{k})]},
+			\end{equation}
+			其中积分范围是第一布里渊区。
+			只要给定了几何$\Re[\mathbb{B}]$，上述积分就是所谓的黎曼体积。
+			它是规范不变的，所以是物理上可观测的希尔伯特空间的体积。
+			对于一维系统，公式~\eqref{eq:metric}约化为一个一维的张量（一个数）：
+			\begin{equation}\label{eq:B_1D}
+				\mathbb{B}(k)= \langle \dot{\psi}_k|\dot{\psi}_k\rangle-\langle \dot{\psi}_k|\psi_k\rangle \langle \psi_k|\dot{\psi}_k \rangle,
+			\end{equation}
+			其中$\dot{u}_k=\partial u_k/\partial k$，以及一维的量子态体积为$g_{1D}=\int dk \sqrt{\mathbb{B}(k)}$
 
 	\section{研究结果}
 	
 		\subsection{解析结论}
 
-			\subsubsection{引理}
-			
-			\subsubsection{待证定理}
-
-			\subsubsection{假设条件}
-
-			\subsubsection{证明过程}
+			%我们的主要结论是：对于一个具有空间平移不变性的、被一个控制参数$\lambda$所控制的哈密顿量$\hat{\mathcal{H}}_k(\lambda)$（见公式\eqref{eq:Ham}）
 			
 		\subsection{数值结果}
 		
