@@ -50,7 +50,7 @@
 			$\hat{\mathcal{H}}_k$在量子相变点处的非解析行为不仅影响了系统的定态性质比如基态能量， 对远离基态的动力学也有显著的影响。
 			为了阐述这一论点，我们研究了已经在可积系统中被广泛研究过~\cite{Barthel2008,Calabrese2011,Mitra2018}的量子淬火动力学。
 			和之前的研究不同的是，我们将从另一个角度——量子几何的角度来研究这个问题。
-			公式.~\eqref{eq:Ham}中所给出的哈密顿量是由一系列解耦的动量模式所描述的二能级系统，其近动模式频率由能隙$\Delta_k$所决定。
+			公式（\eqref{eq:Ham}）中所给出的哈密顿量是由一系列解耦的动量模式所描述的二能级系统，其近动模式频率由能隙$\Delta_k$所决定。
 			因此，$\Delta_k$的奇异性决定了系统的动力学， 且可以用量子几何的演化来刻画。
 		
 		\subsection{量子度规与量子态体积}
@@ -76,18 +76,84 @@
 			\begin{equation}\label{eq:B_1D}
 				\mathbb{B}(k)= \langle \dot{\psi}_k|\dot{\psi}_k\rangle-\langle \dot{\psi}_k|\psi_k\rangle \langle \psi_k|\dot{\psi}_k \rangle,
 			\end{equation}
-			其中$\dot{u}_k=\partial u_k/\partial k$，以及一维的量子态体积为$g_{1D}=\int dk \sqrt{\mathbb{B}(k)}$
+			其中$\dot{u}_k=\partial u_k/\partial k$，以及一维的量子态体积为$g_{1D}=\int dk \sqrt{\mathbb{B}(k)}$。
 
 	\section{研究结果}
 	
-		\subsection{解析结论}
+		\subsection{解析结论的阐述}
 
-			%我们的主要结论是：对于一个具有空间平移不变性的、被一个控制参数$\lambda$所控制的哈密顿量$\hat{\mathcal{H}}_k(\lambda)$（见公式\eqref{eq:Ham}）
+			我们的主要结论是：对于一个具有空间平移不变性的、被一个控制参数$\lambda$所控制的哈密顿量$\hat{\mathcal{H}}_k(\lambda)$（见公式（\eqref{eq:Ham}）），让系统初始时刻被制备在$\hat{\mathcal{H}}_k(\lambda_0)$的基态，然后瞬间改变$\lambda$让系统在新的哈密顿量$\hat{\mathcal{H}}_k(\lambda_f)$下演化。
+			如果$\lambda_f$恰好是系统能隙闭合的临界点，即$\lambda=\lambda_c$，那么系统的量子态体积就会展现出与系统的普适的临界动力学行为。
+			这种普适的行为和系统的具体形式无关，与系统的绝大部分细节无关，只取决于系统的维度。
+			
+			{\bf 引理:}
+			\textit{对于上述量子淬火动力学，系统的量子态体积通常呈现出线性增长（可能伴随着周期振荡），线性增长率依赖于$\lambda_f$。}
+			
+			我们可以这样理解这个结果：公式（\ref{eq:metric}）和（\ref{eq:B_1D}）中量子度规的时间依赖来自波函数$|\psi_k(t)\rangle=e^{i\hat{\mathcal{H}}_k(\lambda_f)t}|\psi_k(0)\rangle$，所以公式（\ref{eq:metric}）和（\ref{eq:B_1D}）对动量$k$的求导引入了量子态体积对时间$t$的线性依赖，这主导了量子态体积的长时动力学行为。
+			我们粗略地给出：
+			\begin{equation}
+				\det{\Re[\mathbb{B}_{ij}(\mathbf{k})]} = f_\mathbf{k}^0(t)+f_\mathbf{k}^1(t) t+R_\mathbf{k} t^2\sin^2[2 \epsilon_\mathbf{k} t]. \label{eq:Rk}
+			\end{equation}
+			最后一项主导了$g_{2D}(t)$的长时动力学——伴随周期振荡的线性增长。
+			将振荡项$|\sin2\epsilon_{\mathbf{k}}t|$用它在一个周期内的平均值$\frac 2\pi$代替之后，我们就得到$g_{2D}(t)\sim v(\lambda_f)t$，其中线性增长率$v(\lambda_f)=\frac 2\pi\int d\mathbf{k}\sqrt{R_{\mathbf{k}}}$，且$R_{\mathbf{k}}$与时间无关，包含了初态的信息。
+			
+			{\bf 定理:}
+			\textit{$v(\lambda_f)$关于$\lambda_f$的导数在量子临界点处展现出普适的跳变值:
+				\begin{equation}\label{eq:Cd}
+					\frac{dv}{d\lambda_f}\bigg |_{\lambda_f=\lambda_c^-} - \frac{dv}{d\lambda_f}\bigg |_{\lambda_f=\lambda_c^+} = \mathcal{N} C_d
+				\end{equation}
+				其中$\mathcal{N}$是第一布里渊区内的能隙闭合点个数，$C_d$代表了一个只跟系统维度有关的无量纲常数:
+				\begin{eqnarray}
+					C_d = \left\{\begin{array}{cl}
+						2\pi, & d=1;   \\
+						8, & d=2. \\
+					\end{array}\right.
+				\end{eqnarray}
+			}
+		
+			{\bf 假设条件:}
+			上述定理的证明依赖于以下两点假设：
+			\begin{enumerate}
+				\item 哈密顿矢量${\vec{h}}_{\mathbf{k}}$的每个分量（即使是在量子临界点处）都是$\mathbf{k}$和 $\lambda$解析函数；
+				\item 能隙闭合点是其邻域内的唯一极值点；
+			\end{enumerate}
+			事实上，绝大部分实际的物理模型都符合这两点假设。
+			
+			下一小节中我们将基于上述假设证明我们提出的定理。
+			
+		\subsection{解析结论的证明}
+		
+			我们的证明过程分为以下三步：
+			\begin{enumerate}
+				\item 第一步，我们证明了只有能隙闭合点$k_c$邻域内的动量模式对系统的非解析行为有贡献。这允许我们对哈密顿量在$k_c$附近进行泰勒展开，也是定理中与系统的特定形式无关的关键原因；
+				\item 第二步，通过对泰勒展开后哈密顿量不同形式的分类和归并，简化了哈密顿矢量的形式；
+				\item 第三步，基于第二步给出的简化形式证明$C_d$是一个普适的常数。
+			\end{enumerate}
+		
+			% 插图
+			\begin{figure}[!htp]
+				\centering
+				\includegraphics[width=0.7\textwidth]{figures/QV_BZ_D.pdf}
+				\bicaption{二维系统量子淬火动力学的示意图。
+					阴影部分（区域$D$）表示了第一布里渊区中能隙闭合点$\mathbf{k}_c$附近的邻域。}{Illustration of the quantum quench dynamics in a 2D case.
+					The shadowed regime  (denoted by $D$) indicates a small vicinity around the gap close point $\mathbf{k}_c$ in the 1st BZ.} \label{Fig:BZ_D}
+			\end{figure} 		
+		
+			{\bf 第一步:}
+			哈密顿矢量${\vec{h}}_{\mathbf{k}}$的解析性允许我们将积分区间从整个第一布里渊区缩小到孤立能隙闭合点的邻域内。
+			简单起见，考虑第一布里渊区内只有一个能隙闭合点，我们需要证明：
+			\begin{equation}
+				\frac{d}{d\lambda_f} \int_{BZ-D} r_\mathbf{k}(\lambda_f) d\mathbf{k} \bigg|_{\lambda_f=\lambda_c^-} - \frac{d}{d\lambda_f} \int_{BZ-D} r_\mathbf{k}(\lambda_f) d\mathbf{k} \bigg|_{\lambda_f=\lambda_c^+}
+			\end{equation}
+			这一表达式为零。
+			其中$D$是$\mathbf{k}_c$附近任意小的邻域。
+			对于$D$关于第一布里渊区的补集$BZ-D$，$r_\mathbf{k}^2$是关于$\mathbf{k} \in BZ-D$和$\lambda \in (\lambda_c-\delta \lambda, \lambda_c+\delta \lambda)$双重解析的函数，所以对于$k$的积分和对于$\lambda_f$的导数可以交换：
+			\begin{equation}
+				\int_{BZ-D} \left(\frac{\partial r_\mathbf{k}(\lambda_f)}{\partial\lambda_f}  \bigg|_{\lambda_f = \lambda_c^-} - \frac{\partial r_\mathbf{k}(\lambda_f)}{\partial\lambda_f} \bigg|_{\lambda_f=\lambda_c^+}\right) d\mathbf{k}. 
+			\end{equation}
 			
 		\subsection{数值结果}
 		
-			\subsubsection{一维模型数值结果}
-			
-			\subsubsection{二维模型数值结果}	
+				
 
 	\section{结论与展望}
