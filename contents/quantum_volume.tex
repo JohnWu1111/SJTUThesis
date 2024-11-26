@@ -50,7 +50,7 @@
 			$\hat{\mathcal{H}}_k$在量子相变点处的非解析行为不仅影响了系统的定态性质比如基态能量， 对远离基态的动力学也有显著的影响。
 			为了阐述这一论点，我们研究了已经在可积系统中被广泛研究过~\cite{Barthel2008,Calabrese2011,Mitra2018}的量子淬火动力学。
 			和之前的研究不同的是，我们将从另一个角度——量子几何的角度来研究这个问题。
-			公式（\eqref{eq:Ham}）中所给出的哈密顿量是由一系列解耦的动量模式所描述的二能级系统，其近动模式频率由能隙$\Delta_k$所决定。
+			公式~\eqref{eq:Ham}中所给出的哈密顿量是由一系列解耦的动量模式所描述的二能级系统，其近动模式频率由能隙$\Delta_k$所决定。
 			因此，$\Delta_k$的奇异性决定了系统的动力学， 且可以用量子几何的演化来刻画。
 		
 		\subsection{量子度规与量子态体积}
@@ -82,20 +82,25 @@
 	
 		\subsection{解析结论的阐述}
 
-			我们的主要结论是：对于一个具有空间平移不变性的、被一个控制参数$\lambda$所控制的哈密顿量$\hat{\mathcal{H}}_k(\lambda)$（见公式（\eqref{eq:Ham}）），让系统初始时刻被制备在$\hat{\mathcal{H}}_k(\lambda_0)$的基态，然后瞬间改变$\lambda$让系统在新的哈密顿量$\hat{\mathcal{H}}_k(\lambda_f)$下演化。
+			我们的主要结论是：对于一个具有空间平移不变性的、被一个控制参数$\lambda$所控制的哈密顿量$\hat{\mathcal{H}}_k(\lambda)$（见公式~\eqref{eq:Ham}），让系统初始时刻被制备在$\hat{\mathcal{H}}_k(\lambda_0)$的基态，然后瞬间改变$\lambda$让系统在新的哈密顿量$\hat{\mathcal{H}}_k(\lambda_f)$下演化。
 			如果$\lambda_f$恰好是系统能隙闭合的临界点，即$\lambda=\lambda_c$，那么系统的量子态体积就会展现出与系统的普适的临界动力学行为。
 			这种普适的行为和系统的具体形式无关，与系统的绝大部分细节无关，只取决于系统的维度。
 			
 			{\bf 引理:}
 			\textit{对于上述量子淬火动力学，系统的量子态体积通常呈现出线性增长（可能伴随着周期振荡），线性增长率依赖于$\lambda_f$。}
 			
-			我们可以这样理解这个结果：公式（\ref{eq:metric}）和（\ref{eq:B_1D}）中量子度规的时间依赖来自波函数$|\psi_k(t)\rangle=e^{i\hat{\mathcal{H}}_k(\lambda_f)t}|\psi_k(0)\rangle$，所以公式（\ref{eq:metric}）和（\ref{eq:B_1D}）对动量$k$的求导引入了量子态体积对时间$t$的线性依赖，这主导了量子态体积的长时动力学行为。
+			我们可以这样理解这个结果：公式~\ref{eq:metric}和（\ref{eq:B_1D}）中量子度规的时间依赖来自波函数$|\psi_k(t)\rangle=e^{i\hat{\mathcal{H}}_k(\lambda_f)t}|\psi_k(0)\rangle$，所以公式~\ref{eq:metric}和\ref{eq:B_1D}对动量$k$的求导引入了量子态体积对时间$t$的线性依赖，这主导了量子态体积的长时动力学行为。
 			我们粗略地给出：
 			\begin{equation}
 				\det{\Re[\mathbb{B}_{ij}(\mathbf{k})]} = f_\mathbf{k}^0(t)+f_\mathbf{k}^1(t) t+R_\mathbf{k} t^2\sin^2[2 \epsilon_\mathbf{k} t]. \label{eq:Rk}
 			\end{equation}
 			最后一项主导了$g_{2D}(t)$的长时动力学——伴随周期振荡的线性增长。
-			将振荡项$|\sin2\epsilon_{\mathbf{k}}t|$用它在一个周期内的平均值$\frac 2\pi$代替之后，我们就得到$g_{2D}(t)\sim v(\lambda_f)t$，其中线性增长率$v(\lambda_f)=\frac 2\pi\int d\mathbf{k}\sqrt{R_{\mathbf{k}}}$，且$R_{\mathbf{k}}$与时间无关，包含了初态的信息。
+			将振荡项$|\sin2\epsilon_{\mathbf{k}}t|$用它在一个周期内的平均值$\frac 2\pi$代替之后，我们就得到$g_{2D}(t)\sim v(\lambda_f)t$。
+			记$r_\mathbf{k} = \sqrt{R_{\mathbf{k}}}$，则线性增长率为
+			\begin{equation}\label{Eq:v}
+				v(\lambda_f)=\frac 2\pi\int d\mathbf{k}r_\mathbf{k}
+			\end{equation}
+			且$r_{\mathbf{k}}$与时间无关，包含了初态的信息。
 			
 			{\bf 定理:}
 			\textit{$v(\lambda_f)$关于$\lambda_f$的导数在量子临界点处展现出普适的跳变值:
@@ -103,7 +108,7 @@
 					\frac{dv}{d\lambda_f}\bigg |_{\lambda_f=\lambda_c^-} - \frac{dv}{d\lambda_f}\bigg |_{\lambda_f=\lambda_c^+} = \mathcal{N} C_d
 				\end{equation}
 				其中$\mathcal{N}$是第一布里渊区内的能隙闭合点个数，$C_d$代表了一个只跟系统维度有关的无量纲常数:
-				\begin{eqnarray}
+				\begin{eqnarray}\label{eq:cd}
 					C_d = \left\{\begin{array}{cl}
 						2\pi, & d=1;   \\
 						8, & d=2. \\
@@ -134,23 +139,183 @@
 			\begin{figure}[!htp]
 				\centering
 				\includegraphics[width=0.7\textwidth]{figures/QV_BZ_D.pdf}
-				\bicaption{二维系统量子淬火动力学的示意图。
-					阴影部分（区域$D$）表示了第一布里渊区中能隙闭合点$\mathbf{k}_c$附近的邻域。}{Illustration of the quantum quench dynamics in a 2D case.
-					The shadowed regime  (denoted by $D$) indicates a small vicinity around the gap close point $\mathbf{k}_c$ in the 1st BZ.} \label{Fig:BZ_D}
-			\end{figure} 		
+				\centering
+				\bicaption{二维系统量子淬火动力学的示意图}{Illustration of the quantum quench dynamics in a 2D case} \label{Fig:BZ_D}
+			\end{figure} 
+		
+		%\bicaption{二维系统量子淬火动力学的示意图。
+			%阴影部分（区域$D$）表示了第一布里渊区中能隙闭合点$\mathbf{k}_c$附近的邻域。}{Illustration of the quantum quench dynamics in a 2D case.
+			%The shadowed regime (denoted by $D$) indicates a small vicinity around the gap close point $\mathbf{k}_c$ in the 1st BZ.} \label{Fig:BZ_D}		
 		
 			{\bf 第一步:}
 			哈密顿矢量${\vec{h}}_{\mathbf{k}}$的解析性允许我们将积分区间从整个第一布里渊区缩小到孤立能隙闭合点的邻域内。
+			一般来说，对于任意的维度，公式\eqref{Eq:v}和Eq.~\eqref{eq:Cd}的积分范围可以被缩小到第一布里渊区的一个开子集$S$，只要$S$包含了第一布里渊区的所有能隙闭合点，不管这些能隙闭合点是否是孤立的。
 			简单起见，考虑第一布里渊区内只有一个能隙闭合点，我们需要证明：
-			\begin{equation}
+			\begin{equation}\label{eq:BZ-D}
 				\frac{d}{d\lambda_f} \int_{BZ-D} r_\mathbf{k}(\lambda_f) d\mathbf{k} \bigg|_{\lambda_f=\lambda_c^-} - \frac{d}{d\lambda_f} \int_{BZ-D} r_\mathbf{k}(\lambda_f) d\mathbf{k} \bigg|_{\lambda_f=\lambda_c^+}
 			\end{equation}
 			这一表达式为零。
 			其中$D$是$\mathbf{k}_c$附近任意小的邻域。
-			对于$D$关于第一布里渊区的补集$BZ-D$，$r_\mathbf{k}^2$是关于$\mathbf{k} \in BZ-D$和$\lambda \in (\lambda_c-\delta \lambda, \lambda_c+\delta \lambda)$双重解析的函数，所以对于$k$的积分和对于$\lambda_f$的导数可以交换：
+			对于更高的维度，讨论的思路也是类似的。
+			对于$D$关于第一布里渊区的补集$BZ-D$，$r_\mathbf{k}^2$是关于$\mathbf{k} \in BZ-D$和$\lambda \in (\lambda_c-\delta \lambda, \lambda_c+\delta \lambda)$双重解析的函数，所以$r_\mathbf{k}=\sqrt{R_\mathbf{k}}$和${\partial r_\mathbf{k}(\lambda_f)}/{\partial \lambda_f}$是有界的，于是关于$k$的积分和关于$\lambda_f$的导数可以交换：
 			\begin{equation}
-				\int_{BZ-D} \left(\frac{\partial r_\mathbf{k}(\lambda_f)}{\partial\lambda_f}  \bigg|_{\lambda_f = \lambda_c^-} - \frac{\partial r_\mathbf{k}(\lambda_f)}{\partial\lambda_f} \bigg|_{\lambda_f=\lambda_c^+}\right) d\mathbf{k}. 
+				\int_{BZ-D} \left(\frac{\partial r_\mathbf{k}(\lambda_f)}{\partial\lambda_f}  \bigg|_{\lambda_f = \lambda_c^-} - \frac{\partial r_\mathbf{k}(\lambda_f)}{\partial\lambda_f} \bigg|_{\lambda_f=\lambda_c^+}\right) d\mathbf{k}
 			\end{equation}
+			这部分贡献只能来自$R_\mathbf{k}(\lambda_c)$的零点，因为不解析性来自于对$R_\mathbf{k}(\lambda_c)$开根号。
+			由于$R_\mathbf{k}(\lambda_c)$在$BZ-D$内是解析的且不恒为0，足以说明这些零点构成的是一个零测集，因此公式~\eqref{eq:BZ-D}的值为零。
+			至此，我们得到了
+			\begin{equation}
+				\frac{d}{d\lambda_f} v(\lambda_f) \bigg|_{\lambda_f=\lambda_c^-} - \frac{d}{d\lambda_f} v(\lambda_f) \bigg|_{\lambda_f=\lambda_c^+}=\frac{d}{d\lambda_f} \tilde{v}(\lambda_f) \bigg|_{\lambda_f=\lambda_c^-} - \frac{d}{d\lambda_f} \tilde{v}(\lambda_f) \bigg|_{\lambda_f=\lambda_c^+},
+			\end{equation}
+			其中
+			\begin{equation}\label{Eq:v_reduce}
+				\tilde{v}(\lambda_f) \equiv \int_{D}{r_\mathbf{k}(\lambda_f) d\mathbf{k}},
+			\end{equation}
+			基于公式~\eqref{Eq:v_reduce}，我们就可以对$r_\mathbf{k}$在能隙闭合点$k_c$附近进行泰勒展开，以简化后续计算。
+			
+			{\bf 第二步:}
+			能隙闭合点的简单结构假设可以显著简化计算的过程。
+			不失一般性地，我们可以通过$\mathbf{k}$和$\lambda_f$的变量代换使得$k_c=0$，$\lambda_c=0$。
+			对于一维系统，我们对能隙闭合点的简单结构定义为：
+			$\exists \delta \lambda, \forall \lambda \in (- \delta \lambda, \delta \lambda)$，使得$\epsilon_k^2$的泰勒展开满足：
+			\begin{equation}
+				\epsilon_k^2 = f(\lambda) k^{2n} + l(\lambda) + o(k^{2n}),
+			\end{equation}
+			其中$n$是$k$的最低次数，且
+			\begin{equation}
+				\begin{aligned}
+					& \lim_{\lambda \rightarrow 0^-}{f(\lambda)} = \lim_{\lambda \rightarrow 0^+}{f(\lambda)} \equiv f(\lambda=0)\neq0,\\
+					& \lim_{\lambda \rightarrow 0^-}{l(\lambda)} = \lim_{\lambda \rightarrow 0^+}{l(\lambda)} \equiv l(\lambda=0)=0.
+				\end{aligned}
+			\end{equation}
+			这一条件意味着在泰勒展开的收敛域内，只要$k \neq k_c$或$\lambda \neq \lambda_c$，就有$\epsilon_k \neq 0$，而$\epsilon_k = 0$当且仅当$k=k_c$且$\lambda=\lambda_c$。
+			这也排除了多个局域的极值点随着$\lambda$逼近$\lambda_c$收敛到同一个能隙闭合点的可能性。
+			能隙闭合点简单结构的物理含义是明确的：$\lambda\rightarrow\lambda_c$时低能有效理论的形式是收敛的，这一点对于大量符合场论描述的格点模型都是成立的。
+			哈密顿矢量${\vec{h}}_{\mathbf{k}}$的泰勒展开可以被一般地表示为
+			\begin{equation}
+				\vec{h}_k = [k^{n_X}(a_X \lambda + b_X) + o(k^{n_X}),
+				k^{n_Y}(a_Y \lambda + b_Y) + o(k^{n_Y}),
+				k^{n_Z}(a_Z \lambda + b_Z) + o(k^{n_Z})].
+			\end{equation}
+			既然当$\lambda=0$时，只要$k \neq 0$就有$\vec{h}_k \neq \mathbf{0}$，那么$\{n_X,n_Y,n_Z\}$这三个数中至少存在一个非零的数。
+			于是下面我们进行分类讨论。
+			\begin{enumerate}
+				\item $\{n_X,n_Y,n_Z\}$中只有一个数为0。
+				不失一般性地，通过SU$(2)$的基底变换，我们总能选取$n_Z=0$因此由于能隙在$\lambda_c = 0$处闭合所以$b_Z$必须为0。
+				\begin{enumerate}
+					\item 如果$n_X > n_Y$，那么对应的色散关系就是$\epsilon_k^2 \sim k^{2n_X}(a_X \lambda + b_X)^2 + k^{2n_Y}(a_Y \lambda + b_Y)^2 + \lambda^2$。（对于$n_X < n_Y$的讨论也是类似的。）
+					\begin{enumerate}
+						\item 如果$\epsilon_k^2$的主导项是拥有非零系数$(a_X\lambda+b_X)$的$k^{2n_X}$，那么必须要求$a_Y=b_Y=0$。
+						不仅如此，$\sigma^Z$前面的高阶项必须被限制在$o(k^{2n_X})$。
+						从简单结构假设出发还要求$b_X\neq0$。
+						由于我们关心$\delta\lambda\ll1$的情况，于是我们可以忽略$a_X \lambda$。
+						最后，哈密顿矢量可以被简化为$\vec{h}_k = [b_X k^{n_X} + o(k^{n_X}),0,\lambda + o(k^{2n_X})]$，其中$\lambda$的系数已经被归一化。
+						\item 如果$\epsilon_k$的主导项是$k^{2n_Y}$，那么要求$b_Y \neq 0$，且出于和前一种情形同样的理由，$a_Y \lambda$可以被忽略。
+						因此，哈密顿矢量可以被简化为$\vec{h}_k = [o(k^{n_Y}), b_Y k^{n_Y} + o(k^{n_Y}),\lambda + o(k^{2n_Y})]$。
+					\end{enumerate}
+					\item 如果$n_X = n_Y \ \dot= \ n$，那么通过一个SU$(2)$的基地变换，哈密顿矢量可以被简化为$\vec{h}_k = [\sqrt{b_X^2+c_Y^2} k^{n} + o(k^{n}), o(k^{n}),\lambda+ o(k^{2n})]$。
+				\end{enumerate}
+				\item $\{n_X,n_Y,n_Z\}$之中有两个数为0。
+				不失一般性地，由于$\lambda_c = 0$我们可以假设$n_Y=n_Z=0$并且将$b_Y,b_Z$也设置为0。
+				那么通过一个与$k$无关的基底变换，就可以得到哈密顿矢量的简化形式为$\vec{h}_k = [b_X k^{n_X} + o(k^{n_X}),0,\lambda + o(k^{2n_X})]$。
+			\end{enumerate}
+			总结以上的所有情况，我们可以得到$\vec{h}_k$的简化形式为：
+			\begin{equation} \label{h_k_reduce_1D}
+				\vec{h}_k = [J k^{n} + o(k^{n}), o(k^{n}), \lambda + o(k^{2n})].
+			\end{equation}
+		
+			对于二维的系统，能隙闭合点的简单结构被定义为：
+			当$\lambda \rightarrow \lambda_c$时，$\epsilon_\mathbf{k}^2$的泰勒展开形式可以被表示为
+			\begin{equation}
+				\epsilon_\mathbf{k}^2 = f_x(\lambda) k_x^\alpha + f_y(\lambda) k_y^\beta + g(\lambda) + o(k_x^\alpha) + o(k_y^\beta),
+			\end{equation}
+			其中$\alpha,\beta$是$k_x,k_y$的最低次数，且
+			\begin{equation}
+				\begin{aligned}
+					& \lim_{\lambda \rightarrow \lambda_c^-}{f_{x(y)}(\lambda)} = \lim_{\lambda \rightarrow \lambda_c^+}{f_{x(y)}(\lambda)} \equiv f_{x(y)}(\lambda_c)\neq0,\\
+					& \lim_{\lambda \rightarrow \lambda_c^-}{g(\lambda)} = \lim_{\lambda \rightarrow \lambda_c^+}{g(\lambda)} \equiv g(\lambda_c)=0.
+				\end{aligned}
+			\end{equation}
+			和一维的情形类似，既然$\vec{h}_\mathbf{k}$中$k_x,k_y$的交叉项会对$\epsilon_\mathbf{k}$的收敛行为产生贡献，哈密顿矢量的泰勒展开通常可以被表示为
+			\begin{equation}
+				\vec{h}_\mathbf{k} = k_x^{\vec{\alpha}}(\vec{a} \lambda + \vec{b}) + k_y^{\vec{\beta}}(\vec{c} \lambda + \vec{d}) + o(k_x^{\vec{\alpha}} ,k_y^{\vec{\beta}}),
+			\end{equation}
+			类似地，$\{(\alpha_X,\beta_X),(\alpha_Y,\beta_Y),(\alpha_Z,\beta_Z)\}$之中至少有一个非零矢量。
+			接下来我们进行分类讨论：
+			\begin{enumerate}
+				\item $\{(\alpha_X,\beta_X),(\alpha_Y,\beta_Y),(\alpha_Z,\beta_Z)\}$之中只有一个零矢量。
+				不失一般性地，假设$\alpha_Z=0,\beta_Z=0$，且由于$\lambda_c = 0$我们可以将$b_Z,d_Z$设置为0。
+				\begin{enumerate}
+					\item 按照一维情况下的分析，如果$\alpha_X \neq \alpha_Y$，
+					$k_x^{\alpha_X}(a_X \lambda + b_X)$和$k_x^{\alpha_Y}(a_Y \lambda + b_Y)$之中只有其中一项能被留下。
+					然而，如果在这种情况下$k_x$和$k_y$出现在相同的泡利矩阵之前，那么$k_x,k_y$的交叉项就会进入$\epsilon_\mathbf{k}$的表达式，这和简单结构假设是矛盾的。
+					于是哈密顿矢量的一种等价表示是$\vec{h}_\mathbf{k} = [k_x^{\alpha}(a_X \lambda + b_X) + o(k_x^{\alpha}, k_y^{\beta}),  k_y^{\beta}(c_Y \lambda + d_Y) + o(k_x^{\alpha}, k_y^{\beta}), \lambda + o(k_x^{2\alpha}, k_y^{2\beta})]$。
+					对于$\beta_X \neq \beta_Y$的分析也是类似的。
+					\item 如果$\alpha_X = \alpha_Y \ \dot= \ \alpha, \beta_X = \beta_Y
+					\ \dot= \ \beta$，$\epsilon_\mathbf{k}$中的交叉项就会是$2(b_X d_X + b_Y d_Y)k_x^\alpha    k_y^{\beta}$，这要求$b_X d_X + b_Y d_Y = 0$。
+					得益于SU(2)对称性，不同泡利矩阵前面的$k_x$和$k_y$可以通过一个旋转变换被解耦。
+				\end{enumerate}
+				\item $\{(\alpha_X,\beta_X),(\alpha_Y,\beta_Y),(\alpha_Z,\beta_Z)\}$之中只有一个非零矢量。
+				这种情况下，$k_x,k_y$的交叉项总会出现在$\epsilon_\mathbf{k}^2$，应当被排除。
+			\end{enumerate}
+			总结起来，二维情况下的哈密顿矢量可以的简化形式是
+			\begin{equation} \label{h_k_reduce_2D}
+				\vec{h}_k = [J_{k_x} k_x^{\alpha} + o(k_x^{\alpha} ,k_y^{\beta}), J_{k_y} k_y^{\beta} + o(k_x^{\alpha} ,k_y^{\beta}), \lambda + o(k_x^{2\alpha} ,k_y^{2\beta})].
+			\end{equation}
+		
+			{\bf 第三步:}
+			基于公式~\eqref{h_k_reduce_1D}和\eqref{h_k_reduce_1D}中哈密顿矢量$\vec{h}_k$的简化形式，忽略高阶项（由于我们关心$k_c$附近的小邻域）之后，我们就可以推导出量子态体积增长率的解析形式以及普适常数$C_d$。
+			
+			%我们先给出量子态体积一般的量子淬火动力学。
+			从哈密顿矢量最初的形式$\hat{\mathcal{H}}_k(\lambda)=\vec{h}_\mathbf{k}\cdot \vec{\sigma}$出发，我们可以得到基态的色散关系为$\epsilon_k^{\pm}=\pm|\vec{h}_\mathbf{k}|$。
+			方便起见，我们记$\epsilon_\mathbf{k}=|\vec{h}_\mathbf{k}|$。
+			假设初态是$\hat{\mathcal{H}}_\mathbf{k}(\lambda_0)$的基态，那么对应的波函数为
+			\begin{equation}\label{phi0}
+				|u_\mathbf{k}^0 \rangle=
+				\left[\sqrt{\frac{{{\epsilon_0}_\mathbf{k}-{h_0}_\mathbf{k}^z}}{2{\epsilon_0}_\mathbf{k}}},
+				\frac{{h_0}_\mathbf{k}^x+ i {h_0}_\mathbf{k}^y}{\sqrt{2{\epsilon_0}_\mathbf{k}({\epsilon_0}_\mathbf{k}-{h_0}_\mathbf{k}^z)}}\right],
+			\end{equation}
+			其中$i$是虚数单位。
+			根据前文叙述的两条假设，我们可以推导出对于二维系统：
+			\begin{equation} \label{Eq:rk_2D}
+				r_\mathbf{k} = \frac2\pi \sqrt{R_\mathbf{k}} =\frac{\left|({\vec{h}}_{0\mathbf{k}} \times {\vec{h}}_{f\mathbf{k}}) \cdot (\frac{\partial {\vec{h}}_{f\mathbf{k}}}{\partial x} \frac{\partial \epsilon_\mathbf{k}}{\partial y} - \frac{\partial {\vec{h}}_{f\mathbf{k}}}{\partial y} \frac{\partial \epsilon_\mathbf{k}}{\partial x})\right|}{\pi|{\vec{h}}_{0\mathbf{k}}| \cdot |{\vec{h}}_{f\mathbf{k}}|^2},
+			\end{equation}
+			其中$x, y$指$k_x, k_y$。
+			将第二步得到的哈密顿矢量简化形式代入，可以得到
+			\begin{equation}
+				\tilde{v}_{2D} = \int_{D}{\frac{\alpha \beta |\lambda_f-\lambda_0||J_{k_x}J_{k_y}k_x^{\alpha-1} k_y^{\beta-1}|(J_{k_x}^2k_x^{2\alpha}+J_{k_y}^2k_y^{2\beta})}{\pi(\lambda_f^2+J_{k_x}^2k_x^{2\alpha}+J_{k_y}^2k_y^{2\beta})^{\frac32}(\lambda_0^2+J_{k_x}^2k_x^{2\alpha}+J_{k_y}^2k_y^{2\beta})^{\frac12}} d\mathbf{k}}.
+			\end{equation}
+			$(\lambda_0^2+k_x^{2\alpha}+k_y^{2\beta})^{\frac12}$这一项可以用其在$\mathbf{k}_c$处的值$|\lambda_0|$来代替。
+			由于我们关心$\lambda_f$趋近于$\lambda_c$的行为，所以$|\frac{\lambda_f-\lambda_0}{\lambda_0}|$可以用1来代替。
+			通过变量代换$k_x'=J_x k_x^\alpha,k_y'=J_y k_y^\beta$和一个极坐标变换$k_x'=q\cos{\theta},k_y'=q\sin{\theta}$，我们得到量子态体积的增长率为
+			\begin{equation}
+				\tilde{v}_{2D} = \int_{0}^{\Lambda}{\frac{2q^3}{(\lambda_f^2+q^2)^\frac32}}dq
+				= \frac{4(\sqrt{\lambda_f^2+\Lambda^2}-|\lambda_f|)^2}{\sqrt{\lambda_f^2+\Lambda^2}},
+			\end{equation}
+			进一步计算就可以得到一维的普适常数$C_2=8$。			
+			
+			而对于一维系统，公式~\eqref{eq:Rk}退化为
+			\begin{equation}
+				\mathbb{B}(k) = f_k^0(t)+f_k^1(t) t+R_k t^2,
+			\end{equation}
+			其中
+			\begin{equation} \label{Eq:rk_1D}
+				r_k = \sqrt{R_k} = \frac{|{\vec{h}}_{0k}\times \vec{h}_{fk}||\dot{\epsilon}_k|}{|{\vec{h}}_{0k}|\cdot|\vec{h}_{fk}|},
+			\end{equation}
+			$\dot{\epsilon}_k$表示对$k$的导数。
+			将第二步得到的哈密顿矢量简化形式代入，可以得到
+			\begin{equation}
+				\tilde{v}_{1D} = \int_{-\Lambda}^{\Lambda}{\frac{n |\lambda_f-\lambda_0||J k^{n-1}|J^2 k^{2n}}{(\lambda_f^2+J^2 k^{2n})^{\frac32}(\lambda_0^2+J^2 k^{2n})^{\frac12}} dk}.
+			\end{equation}
+			$(\lambda_0^2+J^2 k^{2n})^{\frac12}$这一项可以用其在$k_c$处的值$|\lambda_0|$来代替。
+			由于我们关心$\lambda_f$趋近于$\lambda_c$的行为，所以$|\frac{\lambda_f-\lambda_0}{\lambda_0}|$可以用1来代替。
+			通过一个变量代换$k_x'=J k_x^\alpha$，我们得到量子态体积的增长率为
+			\begin{equation}
+				\tilde{v}_{1D} = \int_{0}^{\Lambda^n}{\frac{2k_x'^2}{\lambda_f^2+k_x'^2}}dk_x'
+				= 2\left(\Lambda^nJ-\lambda_f\arctan{\frac{\Lambda^nJ}{\lambda_f}}\right),
+			\end{equation}
+			进一步计算就可以得到一维的普适常数$C_1=2\pi$。
+			至此我们就推导出了公式~\eqref{eq:cd}的结果。
 			
 		\subsection{数值结果}
 		
