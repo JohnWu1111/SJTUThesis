@@ -264,7 +264,7 @@
 			\end{equation}
 		
 			{\bf 第三步:}
-			基于公式~\eqref{h_k_reduce_1D}和\eqref{h_k_reduce_1D}中哈密顿矢量$\vec{h}_k$的简化形式，忽略高阶项（由于我们关心$k_c$附近的小邻域）之后，我们就可以推导出量子态体积增长率的解析形式以及普适常数$C_d$。
+			基于公式~\eqref{h_k_reduce_1D}和\eqref{h_k_reduce_2D}中哈密顿矢量$\vec{h}_k$的简化形式，忽略高阶项（由于我们关心$k_c$附近的小邻域）之后，我们就可以推导出量子态体积增长率的解析形式以及普适常数$C_d$。
 			
 			%我们先给出量子态体积一般的量子淬火动力学。
 			从哈密顿矢量最初的形式$\hat{\mathcal{H}}_k(\lambda)=\vec{h}_\mathbf{k}\cdot \vec{\sigma}$出发，我们可以得到基态的色散关系为$\epsilon_k^{\pm}=\pm|\vec{h}_\mathbf{k}|$。
@@ -318,7 +318,112 @@
 			至此我们就推导出了公式~\eqref{eq:cd}的结果。
 			
 		\subsection{数值结果}
+			除了解析上的证明以外，我们还通过数值计算了一些具体的模型来验证我们的结论。
+			我们考虑了一些一维和二维的被广泛研究过的模型。
+			第一个一维的例子是一维的Kitaev链~\cite{Kitaev2001}，它可以用公式~\eqref{eq:Ham}中的k空间哈密顿量来刻画。
+			在这个模型中，$C_k = [c_k, c_{-k}^\dag]$表示的是南部表象下的无自旋费米子算符，哈密顿量可以写成~\cite{Kitaev2001}
+			\begin{equation}
+				\vec{h}(k) = [0, i\Delta\sin k, J\cos k + \lambda(t)],
+			\end{equation}
+			其中$J$和$\Delta$分别代表近邻格点跃迁强度和配对强度。
+			简单起见，我们假设$\Delta = J$。
+			$\lambda(t)$项代表化学势，是一个可以在时间维度上调节的参数。
+			这个模型在临界点$\lambda_c = J$处展现出了基态拓扑量子相变，其中能隙在$k_c = \pi$处闭合。
+			在临界点附近，能谱的色散关系可以近似为$\epsilon_k \sim J|k - k_c|$。
+			我们研究了这个模型的量子淬火动力学，从控制参数$\lambda=\lambda_0$对应的哈密顿量的基态出发，将$\lambda$突然调整到$\lambda_f$，研究在系统在新哈密顿量下的演化行为。
+			从相同的初态出发，在不同$\lambda_f$下对应的量子态体积$g_{1D}(t)$的演化如图~\ref{fig:QV_1D_kitaev}~(a)所示。
+			$g_{1D}(t)$呈现出了线性增长。
+			如图\ref{fig:QV_1D_kitaev}~(b)所示，增长率$v$是$\lambda_f$的函数，且在量子临界点$\lambda_f=J$处有一个弯折。
+			这个弯折具体来看是$v(\lambda_f)$对$\lambda_f$的导数在$\lambda_f=\lambda_c$出现了不连续的行为，如图~\ref{fig:QV_1D_kitaev}~(b)的内页所示。
+			更重要的是图~\ref{fig:QV_1D_kitaev}~(c)中所展示的，从不同的$\lambda_0$对应初态出发的动力学，在量子临界点处$g_{1D}(t)$对$\lambda_f$一阶导数的跳变都是$C_1=2\pi$。
+			
+			\begin{figure}[!htp]
+				\centering
+				\includegraphics[width=1\textwidth]{figures/QV_1D_kitaev.pdf}
+				\centering
+				\bicaption{(a) 一维Kitaev模型从相同的初态$\lambda_0=0.2J$淬火到不同的$\lambda_f$对应的哈密顿量下量子态体积 $g(t)$随时间的演化。
+					(b) 增长率$v$与不同$\lambda_f$之间的关系。内页是增长率$v$关于$\lambda_f$的导数，其在量子临界点处展现出了普适的跳变值$2\pi$。
+					(c) 从不同$\lambda_0$对应的初态出发，$dv/d\lambda_f$随着$\lambda_f$的变化关系，且在 $\lambda_f=J$展现出了相同跳变值$2\pi$。}
+					{(a) Quantum state volume $g(t)$ for the 1D Kitaev model in the quantum quench dynamics starting from the same initial states with $\lambda_0=0.2J$, but evolving under the Hamiltonian with different $\lambda_f$.
+					(b) The growth velocity $v$ as a function of $\lambda_f$. The inset is its derivative with respect to $\lambda_f$ , which exhibits a discontinuity with an universal jump value $2\pi$.
+					(c) $dv/d\lambda_f$ as a function of $\lambda_f$ starting from initial states with different $\lambda_0$, which share the same jump value of $2\pi$ at $\lambda_f=J$.}
+				\label{fig:QV_1D_kitaev}
+			\end{figure}
 		
-				
-
+			第二个一维的例子是Su-Schrieffer-Heeger~(SSH)模型，它的哈密顿量是
+			\begin{equation}
+				H = \lambda\sum_{i=1}^{N}{c^\dagger_{i,A}c_{i,B}} + J\sum_{i=1}^{N}{c^\dagger_{i+1,A}c_{i,B}} + h.c.
+			\end{equation}
+			其中$i$是元胞的指标，每个元胞包含了A和B两种不同的格点。
+			我们选择周期边界条件$c^\dagger_{N+1,A/B} = c^\dagger_{1,A/B}$之后，就可以通过傅里叶变换得到动量空间下的哈密顿矢量为$\vec{h}_k = (\lambda+J\cos{k},J\sin{k},0)$，其中第一布里渊区的范围是$k \in [0,2\pi)$。
+			不失一般性地，我们考虑$\lambda > 0$且$J > 0$，于是哈密顿矢量被约化为$\vec{h}_k = (\lambda,Jk,0)$。
+			当$\lambda_c=J$且$k_c=\pi$时，能隙闭合。
+			我们从数值上检验了$C_1 = 2\pi$，如图~\ref{Fig:QV_1D_SSH}~(a)所示，并且这个结果对于不同的$\lambda_0$都是成立的，如图~\ref{Fig:QV_1D_SSH}~(b)所示。
+			
+			\begin{figure}[!htp]
+				\centering
+				\includegraphics[width=1\textwidth]{figures/QV_1D_SSH.pdf}
+				\centering
+				\bicaption{(a) 当$\lambda_0 = 0.5J$时，线性增长的斜率随着$\lambda_f$的变化关系，并在$\lambda_f = 1.0J$处呈现出弯折。
+					(b) 不同$\lambda_0$的跳变示意图，跳变值均为$2\pi$。}
+				{(a) When $\lambda_0 = 0.5J$, the slope of linear growth with respect to $\lambda_f$, which exhibits a kink at $\lambda_f = 1.0J$.
+					Inset: The derivative of the main set over $\lambda_f$, showing that the jump of slope at $\lambda_f = 1.0J$ equals $2\pi$.
+					(b) The illustration of slope jumps at different $\lambda_0$, which all are equivalent to $2\pi$.}
+				\label{Fig:QV_1D_SSH}
+			\end{figure}
+			
+			最后一个一维的例子是带有周期交错化学势的费米子格点模型，它的哈密顿量是
+			\begin{equation}
+				H = -J\sum_{i=1}^{N}{c^\dagger_{i}c_{i+1}} + h.c. + (-1)^i\lambda\sum_{i=1}^{N}{c^\dagger_{i}c_{i}}
+			\end{equation}
+			考虑周期边界条件$c^\dagger_{N+1} = c^\dagger_{1}$之后，可以通过傅里叶变换得到动量空间的哈密顿矢量为$\vec{h}_k = (\lambda,0,2J\cos{k})$，其中第一布里渊区的范围是$k \in [0,\pi]$。
+			不失一般性地，我们考虑$J > 0$，于是哈密顿矢量可以被约化为$\vec{h}_k = (\lambda,0,-2Jk)$。
+			当$\lambda_c=0$且$k_c=\pi/2$，系统的能隙闭合。
+			我们从数值上验证了$C_1 = 2\pi$，如图~\ref{Fig:QV_1D_AB}~(a)所示，结论对于不同的$\lambda_0$都是成立的，如图~\ref{Fig:QV_1D_AB}~(b)所示。
+			
+			\begin{figure}[!htp]
+				\centering
+				\includegraphics[width=1\textwidth]{figures/QV_1D_AB.pdf}
+				\centering
+				\bicaption{(a) 当$\lambda_0 = 10J$时，线性增长的斜率随着$\lambda_f$的变化关系，并在$\lambda_f = 0.0J$处呈现出弯折。
+					(b) 不同$\lambda_0$的跳变示意图，跳变值均为$2\pi$。}
+				{(a) When $\lambda_0 = 10.0J$, the slope of linear growth with respect to $\lambda_f$, which exhibits a kink at $\lambda_f = 0.0J$.
+					Inset: The derivative of the main set over $\lambda_f$, showing that the jump of slope at $\lambda_f = 0.0J$ equals $2\pi$.
+					(b) The illustration of slope jumps at different $\lambda_0$, which all are equivalent to $2\pi$.}
+				\label{Fig:QV_1D_AB}
+			\end{figure}
+		
+			对于二维的情形，我们也对两个不同的模型进行了计算。
+			第一个模型是Qi-Wu-Zhang (QWZ)模型~\cite{Qi2006}，它的哈密顿量是
+			\begin{equation}
+				\vec{h}_{QWZ}(\mathbf{k}) = [J\sin k_x, J\sin k_y, J(\cos k_x + \cos k_y) + \lambda(t)],\label{eq:QWZ}
+			\end{equation}
+			其中第一布里渊区的范围是$(k_x, k_y) \in (-\pi, \pi]$。
+			这个模型分别在$\lambda = 0, \pm2J$处展现出了量子相变。
+			对于$\lambda = 0$的情况，第一布里渊区内有两个能隙闭合点，即$\mathcal{N}=2$：$\mathbf{k}_c^1=(0,\pi)$和$\mathbf{k}_c^2=(\pi,0)$；
+			而对于$\lambda = 2J(-2J)$的情况，第一布里渊区内就只有一个能隙闭合点，即$\mathcal{N}=1$，位于$\mathbf{k}_c=(0,0)$ ($\mathbf{k}_c=(\pi,\pi)$)。
+			我们从公式\eqref{eq:QWZ}所描述的哈密顿量在控制参数$\lambda = \lambda_0$下的基态出发，然后突然将控制参数调节到$\lambda_f$，再让系统在这个新哈密顿量下演化，研究量子态体积$g(t)$的淬火动力学。
+			$g(t)$依旧展现出了随时间的线性增长，如图~\ref{Fig:QV_2D_QWZ}~(a)所示。
+			然后我们得到增长率$v(\lambda_f)$关于$\lambda_f$的导数。
+			图~\ref{Fig:QV_2D_QWZ}~(b)和(c)说明了在$\lambda_f=-2J$和$\lambda_f=0$处分别出现了普适的跳变值，分别对应$\mathcal{N}=1$和$\mathcal{N}=2$的情形，与公式~\eqref{eq:Cd}中给出的结论$C_2 = 8$是一致的。
+			
+			\begin{figure}[!htp]
+				\centering
+				\includegraphics[width=1\textwidth]{figures/QV_2D_QWZ.pdf}
+				\centering
+				\bicaption{(a) 二维Qi-Wu-Zhang模型从相同的初态$\lambda_0=-0.5J$出发，在不同的哈密顿量$\lambda_f$下量子态体积的淬火动力学
+					(b)和(c) $dv/d\lambda_f$随着$\lambda_f$在不同量子相变点(b) $\lambda_f=-2J$和(c) $\lambda_f=0$处的变化。
+					$\lambda_f=-2J$ ($\lambda_f=0$)时，第一布里渊区内量子临界点的个数分别为$\mathcal{N}=1$ ($\mathcal{N}=2$)。}
+				{(a) Quantum volume $g(t)$ for the 2D Qi-Wu-Zhang model in the quantum quench dynamics starting from the same initial states with $\lambda_0=-0.5J$, but evolving under the Hamiltonian with different $\lambda_f$.
+					(b) and (c) $dv/d\lambda_f$ as a function of $\lambda_f$ around the different quantum critical points at (b) $\lambda_f=-2J$ and (c) $\lambda_f=0$.  The number of the gap closing points in the 1st BZ is $\mathcal{N}=1$ ($\mathcal{N}=2$) for the critical point at $\lambda_f=-2J$ ($\lambda_f=0$).}
+				\label{Fig:QV_2D_QWZ}
+			\end{figure}
+		
 	\section{结论与展望}
+		总之，我们展示了量子临界性可以掌控远离基态的非平衡动力学，并诱导出普适的动力学行为。
+		尽管量子体积依赖于无相互作用的能带结构，但其普适的速度跳跃完全由能隙闭合点附近的k渐近行为局部决定。
+		因此，我们预期这种体积概念可以推广到存在相互作用的体系\cite{Souza2000}，只要这些体系在临界点附近允许具有涌现平移对称性的有效场论描述，例如狄拉克物理和其他共形场论\cite{Francesco:2012aa,Wehling:2014aa}。
+		而这正是在低维系统中普遍存在的特征\cite{Gogolin:2004aa}。
+	
+	
+	
