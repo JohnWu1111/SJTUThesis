@@ -4,57 +4,64 @@
 
 	本章我们将证明在量子多体系统中，基态所对应的量子临界点也能够控制远离平衡态的动力学普适行为。
 	这种普适行为体现在系统的量子几何的演化上。
-	通过研究二次型费米系统的量子淬火动力学，我们证明了系统的量子态体积通常随时间呈现线性增长， 并且线性增长率展现出了普适的规律：它的一阶导数随着控制参数的变化在量子临界点两侧出现跳变。
+	通过研究二次型格点费米子系统的量子淬火动力学，我们证明了系统的量子态体积通常随时间呈现线性增长， 并且线性增长率展现出了普适的规律：它的一阶导数随着控制参数的变化在量子临界点两侧出现跳变。
 	这个跳变值和系统的的绝大部分细节信息无关，只被系统的维度所决定。
 	这个结果揭示了非平衡量子多体系统存在普适的动力学性质。
 
 	\section{研究背景}
 	
-		在其量子多体系统中，量子相变由量子涨落而非热运动驱动，并且会在系统的基态上表现出非解析行为。
-		尽管在现实世界中，物质不可能被冷却到绝对零度，也就无法到达真正的基态，但系统的低能激发态仍然会受到量子临界点的影响。
-		这种影响在相图上呈现出一个V字形的， 从量子相变点向有限温度展开的量子临界区域~\cite{Sachdev1999}。
-		也就是说，量子临界性并不是一个仅存在于在理论的概念， 而是一个切实存在的现象，是它决定了量子临界材料的有限温度特性~\cite{Coleman2005}。
+		在量子多体系统中，量子相变是一个很重要的概念。
+		与经典相变不同，它由量子涨落而非热运动驱动，并且在系统的基态上会表现出非解析行为。
+		尽管在现实世界中，物质不可能被冷却到绝对零度，也就无法到达真正的基态，但低能激发态仍然会受到量子临界点的影响。
+		如果我们观察量子相变的相图，就会发现在相图上呈现出一个V字形的，从量子相变点向有限温度展开的量子临界区域~\cite{Sachdev1999}。
+		也就是说，量子临界性并不是一个仅存在于在理论的概念，而是一个切实存在的现象，是它决定了量子临界材料的有限温特性~\cite{Coleman2005}。
 		迄今为止，大多数研究都集中在量子临界系统的热平衡特性上，而人们对于量子临界性的非平衡特性则了解甚少~\cite{Torre2010}。
+		这是驱动我们开展本章研究的一个重要原因。
 		
-		非平衡物理通常比平衡态物理更为复杂和丰富。
+		非平衡物理通常比平衡态物理更为复杂和丰富，现实生活中的很多现象也都是非平衡的现象。
 		在量子临界性方面，人们已经做出了大量努力来探索量子临界点附近的普适动力学行为。
-		其中包括量子临界点处的普适弛豫~\cite{Sachdev1997}以及由Kibble-Zurek机制~\cite{Kibble1976,Zurek1985} 控制的扫描动力学~\cite{Zurek2005,Dziarmaga2005,Damski2005}等。
-		尽管这些现象和非平衡相关，但它们只涉及位于临界点上方的低能激发态， 因此与基态本身的量子临界点有着根本联系。
-		相对于这些“近平衡动力学”，量子临界性在远离基态的系统中作用仍然没有被研究清楚。
-		值得一提的是，最近的研究进展表明，在长程相互作用系统的量子淬火动力学中存在本征的非平衡临界标度~\cite{Titum2020,De2023}。
-		本章我们将揭示，即使在像二次型自由费米子这样简单的系统中， 基态的量子相变也会导致远离基态的动力学中出现普适的非解析行为，而这种行为可以通过量子几何来刻画。
+		这其中包括量子临界点处的普适弛豫~\cite{Sachdev1997}以及由Kibble-Zurek机制~\cite{Kibble1976,Zurek1985} 控制的扫描动力学~\cite{Zurek2005,Dziarmaga2005,Damski2005}等。
+		尽管这些现象和非平衡相关，但它们只涉及位于临界点上方的低能激发态，因此与基态本身的量子临界点有着根本联系。
+		相比于这些“近平衡动力学”，量子临界性的作用在远离基态的系统中仍然没有被研究清楚。
+		值得一提的是，最近的研究进展表明，在长程相互作用系统的量子淬火动力学中存在着本征的非平衡临界标度~\cite{Titum2020,De2023}。
+		本章我们将揭示，即使在像二次型自由费米子这样简单的系统中，基态的量子相变也会导致远离基态的动力学中出现普适的非解析行为，而这种行为可以通过量子几何来刻画。
 		
-		为了度量量子态之间的距离，人们引入了量子几何的概念。
-		它包含了两个部分的信息，一个是由贝里曲率~\cite{Bohm2003}表征的相位距离，另一个是由量子度规表征~\cite{Provost1980,Matsuura2010,Ma2010b}的幅值距离。
-		相比而言，贝里曲率在拓扑物理学背景下已经被深入研究，而量子度规直到最近才受到关注。
-		在实验方面，量子度规已经在各种人工量子系统中被测量研究，包括冷原子~\cite{Yi2023}、氮空位中心~\cite{Yu2019} 和超导电路~\cite{Zheng2022}等。
-		现在人们已经认识到，从平带超导和超流\cite{Peotta2015,Julku2016,Peotta2023,Tian2023,Espinosa2024} 到反常霍尔效应~\cite{Gianfrate2020,Wang2021,Gao2023}、 量子Fisher信息~\cite{Braunstein1994,Zanardi2007,Hauke2016}、电子-声子相互作用~\cite{Yu2023} 以及分数量子霍尔绝缘体\cite{Parameswaran2013,Neupert2015,BMera2021,BMera20212}，包括量子度规在内的整个量子几何影响着多种多样的现象~\cite{Torma2023}。
-		在量子相变的背景下，量子几何也被研究过~\cite{CAROLLO20201}。
+		人们引入了量子几何的概念最初是为了度量量子态之间的距离。
+		它包含了两个部分的信息，一个是由贝里曲率~\cite{Bohm2003}表征的相位距离，另一个是由量子度规~\cite{Provost1980,Matsuura2010,Ma2010b}表征的幅值距离。
+		相比而言，在过去的几十年里贝里曲率在拓扑物理学背景下已经被深入研究，而量子度规直到最近才受到关注。
+		从实验方面来说，量子度规已经在各种人工量子系统中被测量和研究，包括冷原子~\cite{Yi2023}、氮空位中心~\cite{Yu2019} 和超导电路~\cite{Zheng2022}等实验。
+		现在人们已经认识到，从平带超导和超流\cite{Peotta2015,Julku2016,Peotta2023,Tian2023,Espinosa2024} 到反常霍尔效应~\cite{Gianfrate2020,Wang2021,Gao2023}、 量子Fisher信息~\cite{Braunstein1994,Zanardi2007,Hauke2016}、电子-声子相互作用~\cite{Yu2023} 以及分数量子霍尔绝缘体\cite{Parameswaran2013,Neupert2015,BMera2021,BMera20212}，包括量子度规在内的整个量子几何深刻地影响着多种多样的现象~\cite{Torma2023}。
+		在量子相变的背景下，量子几何也已经被研究过~\cite{CAROLLO20201}。
 		本章我们将揭示量子度规在解释量子系统中的非平衡现象，特别是在远离基态的临界动力学中的关键作用。
 
 	\section{模型与研究方法}
 	
 		\subsection{模型介绍}
 	
-			我们研究了一般的具有空间平移不变性的二次型费米子模型，其哈密顿量可以表示为：
+			为了研究更有一般性，我们选取了具有空间平移不变性的二次型费米子模型，经过傅里叶变换之后，其动量空间的哈密顿量可以一般地表示为：
 			\begin{equation}
 				H=\sum_k C^\dagger_k \hat{\mathcal{H}}_k C_k, \label{eq:Ham}
 			\end{equation}
-			其中$\hat{\mathcal{H}}_k = \vec{h}_k \cdot \vec{\sigma}$对于每个$k$都是2$\times$2的矩阵。
-			$\vec{\sigma} = [\hat{\sigma}^X, \hat{\sigma}^Y, \hat{\sigma}^Z]$代表泡利矩阵， 而$\vec{h}_k = [h_k^X, h_k^Y, h_k^Z]$是三分量的矢量。
-			生成和湮灭算符$C_k$和$C^\dagger_k$既可以表记两分量的费米子$C_k = [c_{\alpha, k}, c_{\beta, k}]^\text{T}$（其中$\alpha, \beta$可以代表子格、 轨道或者自旋的自由度），又可以表记南部表象$C_k = [c_k, c_{-k}^\dagger]^\text{T}$，它描述的是具有配对相互作用的费米子模型。
+			其中每个动量模式下，最简单的情况就是$\hat{\mathcal{H}}_k$的维度为2的情形，即二能级系统，也是本章中我们聚焦的情形。
+			2$\times$2的矩阵可以用泡利矩阵和单位阵进行正交分解，以方便后续计算，分解后一共有4个分量。
+			由于单位阵对应的分量只影响系统能量的绝对值，不影响系统的其他物理行为，我们就可以假设该分量为0。
+			于是我们将哈密顿量分解为$\hat{\mathcal{H}}_k = \vec{h}_k \cdot \vec{\sigma}$，其中$\vec{\sigma} = [\hat{\sigma}^X, \hat{\sigma}^Y, \hat{\sigma}^Z]$代表泡利矩阵，而$\vec{h}_k = [h_k^X, h_k^Y, h_k^Z]$是三分量的矢量，以下称“哈密顿矢量”。
+			另一方面，生成和湮灭算符$C_k$和$C^\dagger_k$既可以表记两分量的费米子$C_k = [c_{\alpha, k}, c_{\beta, k}]^\text{T}$（其中$\alpha, \beta$可以代表子格、 轨道或者自旋的自由度），又可以表记南部表象$C_k = [c_k, c_{-k}^\dagger]^\text{T}$，它描述的是具有配对相互作用的费米子模型。
 			系统的色散关系为$\epsilon_k^{\pm} = \pm \lvert \vec{h}_k \rvert$，上下两个能带之间的能隙为$\Delta_k = 2\lvert \vec{h}_k \rvert$。
 			这样的二次型费米子模型中的量子相变一般由一个或多个能隙闭合点处$\Delta_k$的非解析行为所决定。
 			当$\Delta_k$趋于0时， $\hat{\mathcal{H}}_k$趋于全零矩阵， 这引发了波函数乃至大部分可观测物理量的非解析行为。
 			
 			$\hat{\mathcal{H}}_k$在量子相变点处的非解析行为不仅影响了系统的定态性质比如基态能量， 对远离基态的动力学也有显著的影响。
 			为了阐述这一论点，我们研究了已经在可积系统中被广泛研究过~\cite{Barthel2008,Calabrese2011,Mitra2018}的量子淬火动力学。
+			在量子淬火动力学中，淬火操作一般会使得系统的波函数投影到新哈密顿量不同的能级上，通常平均来说是远离基态的。
 			和之前的研究不同的是，我们将从另一个角度——量子几何的角度来研究这个问题。
 			公式~\eqref{eq:Ham}中所给出的哈密顿量是由一系列解耦的动量模式所描述的二能级系统，其近动模式频率由能隙$\Delta_k$所决定。
 			因此，$\Delta_k$的奇异性决定了系统的动力学， 且可以用量子几何的演化来刻画。
+			我们将通过研究系统量子态体积的淬火动力学，来研究量子相变点处的非解析行为对远离基态的动力学的影响。
 		
 		\subsection{量子度规与量子态体积}
 		
+			量子度规可以用来衡量临近动量模式波函数之间的距离。
 			考虑两个相差很小的动量模式所对应的波函数$|u^0_k\rangle$和$|u^0_{k+dk}\rangle$，由于近动频率的细微差别，它们在经过一段时间的演化之后会体现出差距。
 			这两个态之间的距离可以用Fubini-Study度规$\mathbb{B}(k)$来刻画：
 			\begin{equation}
@@ -63,16 +70,16 @@
 			其中$\partial_i=\frac{\partial}{\partial k_i}$， $i=x,y$，而$|\psi_\mathbf{k}\rangle$是动量$\mathbf{k}$所对应的波函数。
 			对于二维系统来说，Fubini-Study度规是一个$2\times2$的张量。
 			$\mathbb{B}_{ij}(k)$的虚部部分是已经被广泛研究过的贝利相位，刻画的是随着$\mathbf{k}$的微小变化波函数的相位差别。
-			而$\mathbb{B}_{ij}(k)$的实部部分是量子度规，度量的是两个动量差别很小的波函数之间的平行性，刻画的是幅值方向上的差距。
-			为了衡量整个系统各个相邻动量波函数之间的差距，量子态体积（Quantum State Volume， QSV）~\cite{Ozawa20210}被引入来刻画布里渊区（BZ）中波函数所在流形的粗糙程度。
-			量子态体积$g$被定义为
+			而$\mathbb{B}_{ij}(k)$的实部部分是量子度规，度量的是两个动量差别很小的波函数之间的平行性，刻画的是希尔伯特空间里波函数矢量指向上的差距。
+			为了衡量整个系统各个相邻动量波函数之间的差距，通过对整个布里渊区（BZ）进行积分，得到的是量子态体积（Quantum State Volume， QSV）~\cite{Ozawa20210}，它也了刻画布里渊区中波函数所在流形的粗糙程度。
+			对于二维系统，量子态体积$g$被定义为
 			\begin{equation} \label{eq:g_2D}
 				g_{2D}=\int d\mathbf{k} \sqrt{\det\Re[\mathbb{B}_{ij}(\mathbf{k})]},
 			\end{equation}
 			其中积分范围是第一布里渊区。
 			只要给定了几何$\Re[\mathbb{B}]$，上述积分就是所谓的黎曼体积。
 			它是规范不变的，所以是物理上可观测的希尔伯特空间的体积。
-			对于一维系统，公式~\eqref{eq:metric}约化为一个一维的张量（一个数）：
+			而对于一维系统，公式~\eqref{eq:metric}约化为一个一维的张量（一个数）：
 			\begin{equation}\label{eq:B_1D}
 				\mathbb{B}(k)= \langle \dot{\psi}_k|\dot{\psi}_k\rangle-\langle \dot{\psi}_k|\psi_k\rangle \langle \psi_k|\dot{\psi}_k \rangle,
 			\end{equation}
@@ -80,27 +87,107 @@
 
 	\section{研究结果}
 	
-		\subsection{解析结论的阐述}
-
-			我们的主要结论是：对于一个具有空间平移不变性的、被一个控制参数$\lambda$所控制的哈密顿量$\hat{\mathcal{H}}_k(\lambda)$（见公式~\eqref{eq:Ham}），让系统初始时刻被制备在$\hat{\mathcal{H}}_k(\lambda_0)$的基态，然后瞬间改变$\lambda$让系统在新的哈密顿量$\hat{\mathcal{H}}_k(\lambda_f)$下演化。
-			如果$\lambda_f$恰好是系统能隙闭合的临界点，即$\lambda=\lambda_c$，那么系统的量子态体积就会展现出与系统的普适的临界动力学行为。
-			这种普适的行为和系统的具体形式无关，与系统的绝大部分细节无关，只取决于系统的维度。
-			
+		我们提出了一个广泛适用于二次型费米子系统淬火动力学的定理，不仅从解析上给出了证明，并且通过数值计算了不同的模型进行了检验。
+		我们的主要结论是：对于一个具有空间平移不变性的、被一个控制参数$\lambda$所控制的哈密顿量$\hat{\mathcal{H}}_k(\lambda)$（见公式~\eqref{eq:Ham}），让系统初始时刻被制备在$\hat{\mathcal{H}}_k(\lambda_0)$的基态上，然后瞬间改变$\lambda$让系统在新的哈密顿量$\hat{\mathcal{H}}_k(\lambda_f)$下演化。
+		如果$\lambda_f$恰好是系统能隙闭合的量子临界点，即$\lambda=\lambda_c$，那么系统量子态体积的时间演化就会展现出与系统的普适的临界动力学行为。
+		这种普适的行为和系统的具体形式无关，与系统的绝大部分细节无关，只取决于系统的维度。
+		在描述最关键的定理之前，我们先提出一个引理。
+		
+		\subsection{引理的阐述与证明}	
 			{\bf 引理:}
 			\textit{对于上述量子淬火动力学，系统的量子态体积通常呈现出线性增长（可能伴随着周期振荡），线性增长率依赖于$\lambda_f$。}
 			
-			我们可以这样理解这个结果：公式~\ref{eq:metric}和（\ref{eq:B_1D}）中量子度规的时间依赖来自波函数$|\psi_k(t)\rangle=e^{i\hat{\mathcal{H}}_k(\lambda_f)t}|\psi_k(0)\rangle$，所以公式~\ref{eq:metric}和\ref{eq:B_1D}对动量$k$的求导引入了量子态体积对时间$t$的线性依赖，这主导了量子态体积的长时动力学行为。
-			我们粗略地给出：
+			我们可以这样理解这个结果：公式~\eqref{eq:metric}和\eqref{eq:B_1D}中量子度规的时间依赖来自波函数
+			\begin{equation}\label{eq:phit}
+				|\psi_k(t)\rangle=e^{-i\hat{\mathcal{H}}_k(\lambda_f)t}|\psi_k(0)\rangle
+			\end{equation}
+			所以公式~\eqref{eq:metric}和\eqref{eq:B_1D}对动量$k$的求导引入了量子态体积对时间$t$的线性依赖，这主导了量子态体积的长时动力学行为。		
+			对于一维系统，我们可以证明：
+			\begin{equation}\label{eq:Rk_1D}
+				\mathbb{B}(k) = f_k^0(t)+f_k^1(t) t+R_k t^2. 
+			\end{equation}
+			其中$R_k$不依赖于时间$t$。
+			
+			下面我们推导一维系统量子态体积的长时动力学。
+			为了得到公式~\eqref{eq:metric}的结果，我们对公式\eqref{eq:B_1D}关于$k$进行求导，得到
+			\begin{equation}\label{eq:dphit}
+				|\dot{\psi}_k(t)\rangle = (e^{-i\hat{\mathcal{H}}_k t})'|\psi_k(0)\rangle + 
+				(e^{-i\hat{\mathcal{H}}_k t})|\dot{\psi}_k(0)\rangle
+			\end{equation}
+			其中$()'$也表示对$k$的导数，且方便起见表记上我们约定$\hat{\mathcal{H}}_k \equiv \hat{\mathcal{H}}_k(\lambda_f)$。
+			由于我们关心的是长时动力学，且显然公式\eqref{eq:B_1D}中$t$的平方项来自波函数中$t$的一次项故我们可以对波函数及其导数只保留$t$的一次项。
+			由于初态波函数不含时间，其对$k$的导数不贡献时间$t$的依赖，$t$的一次项完全来自时间演化算符对$k$求导所产生，于是公式\eqref{eq:dphit}约化为
+			\begin{equation}\label{eq:dphit_reduced}
+				|\dot{\psi}_k(t)\rangle = (e^{-i\hat{\mathcal{H}}_k t})'|\psi_k(0)\rangle
+			\end{equation}
+			为了方便对时间演化算符求导，我们先将哈密顿量进行对角化。
+			引入哈密顿量对角化后的形式
+			\begin{equation}\label{eq:diag}
+				\hat{\mathcal{D}}_k = S_k^{-1} \hat{\mathcal{H}}_k S_k
+			\end{equation}
+			其中矩阵$S_k$是将哈密顿量对角化的正交阵，满足$S^{-1} = S^\dagger$，同时也依赖于$\lambda_f$。
+			不难发现，对于二能级系统，对角化的哈密顿量直接和色散关系挂钩：
+			\begin{equation}\label{eq:Dk}
+				\hat{\mathcal{D}}_k = -\epsilon_k \hat{\sigma}_Z
+			\end{equation}
+			其中色散关系$\epsilon_k$约定为前文提到的上能带$\epsilon_k^+$。
+			于是时间演化算符$e^{i\hat{\mathcal{H}}_k t}$也可以被$S_k$对角化：
 			\begin{equation}
-				\det{\Re[\mathbb{B}_{ij}(\mathbf{k})]} = f_\mathbf{k}^0(t)+f_\mathbf{k}^1(t) t+R_\mathbf{k} t^2\sin^2[2 \epsilon_\mathbf{k} t]. \label{eq:Rk}
+				e^{-i\hat{\mathcal{H}}_k t} = S_k e^{-i\hat{\mathcal{D}}_k t} S_k^{-1} = S_k e^{i\epsilon_k \hat{\sigma}_Z t} S_k^{-1}
+			\end{equation}
+			其对$k$求导的结果为
+			\begin{equation}
+				(e^{i\epsilon_k \hat{\sigma}_Z t})' = S_k (e^{i\epsilon_k \hat{\sigma}_Z t})' S_k^{-1} + S_k' e^{i\epsilon_k \hat{\sigma}_Z t} S_k^{-1} + S_k e^{i\epsilon_k \hat{\sigma}_Z t} (S_k^{-1})'
+			\end{equation}
+			保留时间$t$的一次项，得到
+			\begin{equation}
+				(e^{i\epsilon_k \hat{\sigma}_Z t})' = S_k (e^{i\epsilon_k \hat{\sigma}_Z t})' S_k^{-1} = i t \dot{\epsilon}_k S_k \hat{\sigma}_Z e^{i\epsilon_k \hat{\sigma}_Z t} S_k^{-1}
+			\end{equation}
+			于是公式\eqref{eq:dphit_reduced}可以被简化为
+			\begin{equation}
+				|\dot{\psi}_k(t)\rangle = i t \dot{\epsilon}_k S_k \hat{\sigma}_Z e^{i\epsilon_k \hat{\sigma}_Z t} S_k^{-1}|\psi_k(0)\rangle
+			\end{equation}
+			然后我们可以分别代入计算公式~\eqref{eq:metric}的两项。
+			第一项为
+			\begin{equation}
+				\langle \dot{\psi}_k(t)|\dot{\psi}_k(t) \rangle = t^2 \dot{\epsilon}_k^2
+			\end{equation}
+			可以看出，这一项只包含淬火后哈密顿量的能谱信息，并不包含初态的信息。
+			对于第二项，我们先算出
+			\begin{equation}
+				\langle \psi_k(t)|\dot{\psi}_k(t) \rangle = i t \dot{\epsilon}_k \langle \psi_k(0)|S_k \hat{\sigma}_Z S_k^{-1}|\psi_k(0) \rangle
+			\end{equation}
+			反过来利用公式\eqref{eq:diag}和\eqref{eq:Dk}，我们就可以算出
+			\begin{equation}
+				\langle \psi_k(0)| S_k \hat{\sigma}_Z S_k^{-1} |\psi_k(0) \rangle= -\frac{\langle \psi_k(0)|\hat{\mathcal{H}}_k|\psi_k(0) \rangle}{\epsilon_k} = -\frac{\vec{h}_{0k}\cdot\vec{h}_{fk} }{\epsilon_{0k}\epsilon_k}
+			\end{equation}
+			于是第二项整体的结果为
+			\begin{equation}
+				\langle \dot{\psi}_k(t)|\psi_k(t) \rangle \langle \psi_k(t)|\dot{\psi}_k(t) \rangle = t^2 (\dot{\epsilon}_k)^2 \left(\frac{\vec{h}_{0k}\cdot\vec{h}_{fk}}{\epsilon_{0k}\epsilon_k}\right)^2
+			\end{equation}
+			最终我们得到了一维系统的$r_k$为
+			\begin{equation} \label{Eq:rk_1D}
+				r_k = \sqrt{R_k} = |\dot{\epsilon}_k|\sqrt{1-\left(\frac{\vec{h}_{0k}\cdot\vec{h}_{fk}}{\epsilon_{0k}\epsilon_k}\right)^2} = \frac{|{\vec{h}}_{0k}\times \vec{h}_{fk}||\dot{\epsilon}_k|}{|{\vec{h}}_{0k}|\cdot|\vec{h}_{fk}|},
+			\end{equation}
+			线性增长率为
+			\begin{equation}\label{Eq:v_1D}
+				v(\lambda_f) = \int dk r_k
+			\end{equation}
+			且$r_k$与时间无关，包含了初态的信息。
+		
+			对于二维系统，量子态体积的长时动力学的长时推导十分复杂，这里我们粗略地给出：
+			\begin{equation}\label{eq:Rk}
+				\det{\Re[\mathbb{B}_{ij}(\mathbf{k})]} = f_\mathbf{k}^0(t)+f_\mathbf{k}^1(t) t+R_\mathbf{k} t^2\sin^2[2 \epsilon_\mathbf{k} t]. 
 			\end{equation}
 			最后一项主导了$g_{2D}(t)$的长时动力学——伴随周期振荡的线性增长。
 			将振荡项$|\sin2\epsilon_{\mathbf{k}}t|$用它在一个周期内的平均值$\frac 2\pi$代替之后，我们就得到$g_{2D}(t)\sim v(\lambda_f)t$。
 			记$r_\mathbf{k} = \sqrt{R_{\mathbf{k}}}$，则线性增长率为
-			\begin{equation}\label{Eq:v}
+			\begin{equation}\label{Eq:v_2D}
 				v(\lambda_f)=\frac 2\pi\int d\mathbf{k}r_\mathbf{k}
 			\end{equation}
 			且$r_{\mathbf{k}}$与时间无关，包含了初态的信息。
+			
+		\subsection{定理的阐述}
 			
 			{\bf 定理:}
 			\textit{$v(\lambda_f)$关于$\lambda_f$的导数在量子临界点处展现出普适的跳变值:
@@ -126,7 +213,7 @@
 			
 			下一小节中我们将基于上述假设证明我们提出的定理。
 			
-		\subsection{解析结论的证明}
+		\subsection{定理的证明}
 		
 			我们的证明过程分为以下三步：
 			\begin{enumerate}
@@ -138,7 +225,7 @@
 			% 插图
 			\begin{figure}[!htp]
 				\centering
-				\includegraphics[width=0.7\textwidth]{figures/QV_BZ_D.pdf}
+				\includegraphics[width=0.9\textwidth]{figures/QV_BZ_D.pdf}
 				\centering
 				\bicaption{二维系统量子淬火动力学的示意图}{Illustration of the quantum quench dynamics in a 2D case} \label{Fig:BZ_D}
 			\end{figure} 
@@ -149,7 +236,7 @@
 		
 			{\bf 第一步:}
 			哈密顿矢量${\vec{h}}_{\mathbf{k}}$的解析性允许我们将积分区间从整个第一布里渊区缩小到孤立能隙闭合点的邻域内。
-			一般来说，对于任意的维度，公式\eqref{Eq:v}和Eq.~\eqref{eq:Cd}的积分范围可以被缩小到第一布里渊区的一个开子集$S$，只要$S$包含了第一布里渊区的所有能隙闭合点，不管这些能隙闭合点是否是孤立的。
+			一般来说，对于任意的维度，公式\eqref{Eq:v_2D}和Eq.~\eqref{eq:Cd}的积分范围可以被缩小到第一布里渊区的一个开子集$S$，只要$S$包含了第一布里渊区的所有能隙闭合点，不管这些能隙闭合点是否是孤立的。
 			简单起见，考虑第一布里渊区内只有一个能隙闭合点，我们需要证明：
 			\begin{equation}\label{eq:BZ-D}
 				\frac{d}{d\lambda_f} \int_{BZ-D} r_\mathbf{k}(\lambda_f) d\mathbf{k} \bigg|_{\lambda_f=\lambda_c^-} - \frac{d}{d\lambda_f} \int_{BZ-D} r_\mathbf{k}(\lambda_f) d\mathbf{k} \bigg|_{\lambda_f=\lambda_c^+}
@@ -157,7 +244,7 @@
 			这一表达式为零。
 			其中$D$是$\mathbf{k}_c$附近任意小的邻域。
 			对于更高的维度，讨论的思路也是类似的。
-			对于$D$关于第一布里渊区的补集$BZ-D$，$r_\mathbf{k}^2$是关于$\mathbf{k} \in BZ-D$和$\lambda \in (\lambda_c-\delta \lambda, \lambda_c+\delta \lambda)$双重解析的函数，所以$r_\mathbf{k}=\sqrt{R_\mathbf{k}}$和${\partial r_\mathbf{k}(\lambda_f)}/{\partial \lambda_f}$是有界的，于是关于$k$的积分和关于$\lambda_f$的导数可以交换：
+			对于$D$关于第一布里渊区的补集$BZ-D$，$r_\mathbf{k}^2$是关于$\mathbf{k} \in BZ-D$和$\lambda \in (\lambda_c-\delta \lambda, \lambda_c+\delta \lambda)$双重解析的函数，所以$r_\mathbf{k} \sim \sqrt{R_\mathbf{k}}$和${\partial r_\mathbf{k}(\lambda_f)}/{\partial \lambda_f}$是有界的，于是关于$k$的积分和关于$\lambda_f$的导数可以交换：
 			\begin{equation}
 				\int_{BZ-D} \left(\frac{\partial r_\mathbf{k}(\lambda_f)}{\partial\lambda_f}  \bigg|_{\lambda_f = \lambda_c^-} - \frac{\partial r_\mathbf{k}(\lambda_f)}{\partial\lambda_f} \bigg|_{\lambda_f=\lambda_c^+}\right) d\mathbf{k}
 			\end{equation}
@@ -266,21 +353,11 @@
 			{\bf 第三步:}
 			基于公式~\eqref{h_k_reduce_1D}和\eqref{h_k_reduce_2D}中哈密顿矢量$\vec{h}_k$的简化形式，忽略高阶项（由于我们关心$k_c$附近的小邻域）之后，我们就可以推导出量子态体积增长率的解析形式以及普适常数$C_d$。
 			
-			%我们先给出量子态体积一般的量子淬火动力学。
-			从哈密顿矢量最初的形式$\hat{\mathcal{H}}_k(\lambda)=\vec{h}_\mathbf{k}\cdot \vec{\sigma}$出发，我们可以得到基态的色散关系为$\epsilon_k^{\pm}=\pm|\vec{h}_\mathbf{k}|$。
-			方便起见，我们记$\epsilon_\mathbf{k}=|\vec{h}_\mathbf{k}|$。
-			假设初态是$\hat{\mathcal{H}}_\mathbf{k}(\lambda_0)$的基态，那么对应的波函数为
-			\begin{equation}\label{phi0}
-				|u_\mathbf{k}^0 \rangle=
-				\left[\sqrt{\frac{{{\epsilon_0}_\mathbf{k}-{h_0}_\mathbf{k}^z}}{2{\epsilon_0}_\mathbf{k}}},
-				\frac{{h_0}_\mathbf{k}^x+ i {h_0}_\mathbf{k}^y}{\sqrt{2{\epsilon_0}_\mathbf{k}({\epsilon_0}_\mathbf{k}-{h_0}_\mathbf{k}^z)}}\right],
-			\end{equation}
-			其中$i$是虚数单位。
 			根据前文叙述的两条假设，我们可以推导出对于二维系统：
 			\begin{equation} \label{Eq:rk_2D}
 				r_\mathbf{k} = \frac2\pi \sqrt{R_\mathbf{k}} =\frac{\left|({\vec{h}}_{0\mathbf{k}} \times {\vec{h}}_{f\mathbf{k}}) \cdot (\frac{\partial {\vec{h}}_{f\mathbf{k}}}{\partial x} \frac{\partial \epsilon_\mathbf{k}}{\partial y} - \frac{\partial {\vec{h}}_{f\mathbf{k}}}{\partial y} \frac{\partial \epsilon_\mathbf{k}}{\partial x})\right|}{\pi|{\vec{h}}_{0\mathbf{k}}| \cdot |{\vec{h}}_{f\mathbf{k}}|^2},
 			\end{equation}
-			其中$x, y$指$k_x, k_y$。
+			其中$x, y$指$k_x, k_y$，具体的推导见附录（\textcolor{red}{暂定}）。
 			将第二步得到的哈密顿矢量简化形式代入，可以得到
 			\begin{equation}
 				\tilde{v}_{2D} = \int_{D}{\frac{\alpha \beta |\lambda_f-\lambda_0||J_{k_x}J_{k_y}k_x^{\alpha-1} k_y^{\beta-1}|(J_{k_x}^2k_x^{2\alpha}+J_{k_y}^2k_y^{2\beta})}{\pi(\lambda_f^2+J_{k_x}^2k_x^{2\alpha}+J_{k_y}^2k_y^{2\beta})^{\frac32}(\lambda_0^2+J_{k_x}^2k_x^{2\alpha}+J_{k_y}^2k_y^{2\beta})^{\frac12}} d\mathbf{k}}.
@@ -294,16 +371,7 @@
 			\end{equation}
 			进一步计算就可以得到一维的普适常数$C_2=8$。			
 			
-			而对于一维系统，公式~\eqref{eq:Rk}退化为
-			\begin{equation}
-				\mathbb{B}(k) = f_k^0(t)+f_k^1(t) t+R_k t^2,
-			\end{equation}
-			其中
-			\begin{equation} \label{Eq:rk_1D}
-				r_k = \sqrt{R_k} = \frac{|{\vec{h}}_{0k}\times \vec{h}_{fk}||\dot{\epsilon}_k|}{|{\vec{h}}_{0k}|\cdot|\vec{h}_{fk}|},
-			\end{equation}
-			$\dot{\epsilon}_k$表示对$k$的导数。
-			将第二步得到的哈密顿矢量简化形式代入，可以得到
+			而对于一维系统，将第二步得到的哈密顿矢量简化形式代入公式\eqref{eq:rk_1D}，可以得到
 			\begin{equation}
 				\tilde{v}_{1D} = \int_{-\Lambda}^{\Lambda}{\frac{n |\lambda_f-\lambda_0||J k^{n-1}|J^2 k^{2n}}{(\lambda_f^2+J^2 k^{2n})^{\frac32}(\lambda_0^2+J^2 k^{2n})^{\frac12}} dk}.
 			\end{equation}

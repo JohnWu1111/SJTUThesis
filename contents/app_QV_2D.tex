@@ -1,0 +1,24 @@
+% !TEX root = ../main.tex
+
+\chapter{简单能带结构假设下二维量子态体积增长率的推导过程}
+
+	这里我们给出简单能带结构假设下二维量子态体积增长率的推导过程。
+	我们从公式\eqref{h_k_reduce_2D}给出的哈密顿矢量出发，简单起见，我们将$J_{k_x},J_{k_y}$设置为1，并忽略所有高阶项。
+	我们还可以通过坐标变换，将$k_x,k_y$的次数$\alpha,\beta$变换成1。
+	于是我们得到简化后的哈密顿矢量为
+	\begin{equation} \label{h_k_rereduce_2D}
+		\vec{h}_k = [k_x, k_y, \lambda]
+	\end{equation}
+
+	下面我们从这个哈密顿矢量出发进行量子态体积增长率的推导。
+	通过对角化可以得到，淬火前系统位于$\lambda_0$所控制的初态
+	\begin{equation}
+		|\phi_k(0) \rangle =
+		\left(
+			\begin{array}{l}
+				-\sqrt{\frac{\epsilon_{0k}^2-\lambda_0\epsilon_{0k}}{2\epsilon_{0k}}} \\ [10pt]
+				\frac{x_k + iy_k}{2(\epsilon_{0k}^2-\lambda_0\epsilon_{0k})}
+			\end{array}
+		\right)
+	\end{equation}
+	上，其中$\epsilon_{0k} = \sqrt{x_k^2+y_k^2+\lambda_0^2}$是淬火前哈密顿量的色散关系。
